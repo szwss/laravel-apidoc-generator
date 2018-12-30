@@ -1,17 +1,17 @@
 {
-    "name": "mpociot/laravel-apidoc-generator",
+    "name": "szwss/laravel-apidoc-generator",
     "license": "MIT",
-    "description": "Generate beautiful API documentation from your Laravel application",
+    "description": "Automatically generate your API documentation from your existing Laravel\/Lumen\/Dingo routes. Here's what the output looks like.Automatically generate your API documentation from your existing Laravel\/Lumen\/Dingo routes. Here's what the output looks like.",
     "keywords": [
         "API",
         "Documentation",
         "Laravel"
     ],
-    "homepage": "http://github.com/mpociot/laravel-apidoc-generator",
+    "homepage": "http://github.com/szwss/laravel-apidoc-generator",
     "authors": [
         {
-            "name": "Marcel Pociot",
-            "email": "m.pociot@gmail.com"
+            "name": "szwss",
+            "email": "szwss@qq.com"
         }
     ],
     "require": {
@@ -36,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mpociot\\ApiDoc\\": "src/"
+            "Szwss\\ApiDoc\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mpociot\\ApiDoc\\Tests\\": "tests/"
+            "Szwss\\ApiDoc\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -50,7 +50,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Mpociot\\ApiDoc\\ApiDocGeneratorServiceProvider"
+                "Szwss\\ApiDoc\\ApiDocGeneratorServiceProvider"
             ]
        }
     }
