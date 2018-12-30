@@ -1,10 +1,10 @@
 <?php
 
-namespace Mpociot\ApiDoc;
+namespace Szwss\ApiDoc;
 
 use Illuminate\Support\ServiceProvider;
-use Mpociot\ApiDoc\Commands\UpdateDocumentation;
-use Mpociot\ApiDoc\Commands\GenerateDocumentation;
+use Szwss\ApiDoc\Commands\UpdateDocumentation;
+use Szwss\ApiDoc\Commands\GenerateDocumentation;
 
 class ApiDocGeneratorServiceProvider extends ServiceProvider
 {

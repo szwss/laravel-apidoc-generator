@@ -1,6 +1,6 @@
 <?php
 
-namespace Mpociot\ApiDoc\Tools\ResponseStrategies;
+namespace Szwss\ApiDoc\Tools\ResponseStrategies;
 
 use Dingo\Api\Dispatcher;
 use Illuminate\Http\Request;

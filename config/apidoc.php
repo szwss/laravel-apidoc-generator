@@ -8,6 +8,11 @@ return [
     'output' => 'public/docs',
 
     /*
+     * 指定静态资源文件的url，防止局域网共享时其他访问者无法访问静态资源的问题
+     */
+    'static_resource_url' => env('APP_URL', 'http://localhost'),
+
+    /*
      * The router to be used (Laravel or Dingo).
      */
     'router' => 'laravel',

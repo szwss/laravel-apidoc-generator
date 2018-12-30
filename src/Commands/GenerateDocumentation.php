@@ -1,17 +1,17 @@
 <?php
 
-namespace Mpociot\ApiDoc\Commands;
+namespace Szwss\ApiDoc\Commands;
 
 use ReflectionClass;
 use ReflectionException;
 use Illuminate\Routing\Route;
 use Illuminate\Console\Command;
-use Mpociot\Reflection\DocBlock;
+use Szwss\Reflection\DocBlock;
 use Illuminate\Support\Collection;
-use Mpociot\ApiDoc\Tools\Generator;
-use Mpociot\ApiDoc\Tools\RouteMatcher;
-use Mpociot\Documentarian\Documentarian;
-use Mpociot\ApiDoc\Postman\CollectionWriter;
+use Szwss\ApiDoc\Tools\Generator;
+use Szwss\ApiDoc\Tools\RouteMatcher;
+use Szwss\Documentarian\Documentarian;
+use Szwss\ApiDoc\Postman\CollectionWriter;
 
 class GenerateDocumentation extends Command
 {

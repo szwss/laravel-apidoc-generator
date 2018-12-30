@@ -1,13 +1,13 @@
 <?php
 
-namespace Mpociot\ApiDoc\Tools;
+namespace Szwss\ApiDoc\Tools;
 
 use Faker\Factory;
 use ReflectionClass;
 use ReflectionMethod;
 use Illuminate\Routing\Route;
-use Mpociot\Reflection\DocBlock;
-use Mpociot\Reflection\DocBlock\Tag;
+use Szwss\Reflection\DocBlock;
+use Szwss\Reflection\DocBlock\Tag;
 
 class Generator
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Mpociot\ApiDoc\Tools\ResponseStrategies;
+namespace Szwss\ApiDoc\Tools\ResponseStrategies;
 
 use ReflectionClass;
 use ReflectionMethod;
 use League\Fractal\Manager;
 use Illuminate\Routing\Route;
 use League\Fractal\Resource\Item;
-use Mpociot\Reflection\DocBlock\Tag;
+use Szwss\Reflection\DocBlock\Tag;
 use League\Fractal\Resource\Collection;
 
 /**

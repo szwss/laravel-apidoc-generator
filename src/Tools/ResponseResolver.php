@@ -1,13 +1,13 @@
 <?php
 
-namespace Mpociot\ApiDoc\Tools;
+namespace Szwss\ApiDoc\Tools;
 
 use Illuminate\Routing\Route;
 use Symfony\Component\HttpFoundation\Response;
-use Mpociot\ApiDoc\Tools\ResponseStrategies\ResponseTagStrategy;
-use Mpociot\ApiDoc\Tools\ResponseStrategies\ResponseCallStrategy;
-use Mpociot\ApiDoc\Tools\ResponseStrategies\ResponseFileStrategy;
-use Mpociot\ApiDoc\Tools\ResponseStrategies\TransformerTagsStrategy;
+use Szwss\ApiDoc\Tools\ResponseStrategies\ResponseTagStrategy;
+use Szwss\ApiDoc\Tools\ResponseStrategies\ResponseCallStrategy;
+use Szwss\ApiDoc\Tools\ResponseStrategies\ResponseFileStrategy;
+use Szwss\ApiDoc\Tools\ResponseStrategies\TransformerTagsStrategy;
 
 class ResponseResolver
 {
