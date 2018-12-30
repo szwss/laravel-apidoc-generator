@@ -158,7 +158,7 @@ class TestController extends Controller
     }
 
     /**
-     * @transformer \Mpociot\ApiDoc\Tests\Fixtures\TestTransformer
+     * @transformer \Szwss\ApiDoc\Tests\Fixtures\TestTransformer
      */
     public function transformerTag()
     {
@@ -166,8 +166,8 @@ class TestController extends Controller
     }
 
     /**
-     * @transformer \Mpociot\ApiDoc\Tests\Fixtures\TestTransformer
-     * @transformermodel \Mpociot\ApiDoc\Tests\Fixtures\TestModel
+     * @transformer \Szwss\ApiDoc\Tests\Fixtures\TestTransformer
+     * @transformermodel \Szwss\ApiDoc\Tests\Fixtures\TestModel
      */
     public function transformerTagWithModel()
     {
@@ -175,7 +175,7 @@ class TestController extends Controller
     }
 
     /**
-     * @transformercollection \Mpociot\ApiDoc\Tests\Fixtures\TestTransformer
+     * @transformercollection \Szwss\ApiDoc\Tests\Fixtures\TestTransformer
      */
     public function transformerCollectionTag()
     {
@@ -183,8 +183,8 @@ class TestController extends Controller
     }
 
     /**
-     * @transformercollection \Mpociot\ApiDoc\Tests\Fixtures\TestTransformer
-     * @transformermodel \Mpociot\ApiDoc\Tests\Fixtures\TestModel
+     * @transformercollection \Szwss\ApiDoc\Tests\Fixtures\TestTransformer
+     * @transformermodel \Szwss\ApiDoc\Tests\Fixtures\TestModel
      */
     public function transformerCollectionTagWithModel()
     {

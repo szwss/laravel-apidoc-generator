@@ -21,7 +21,7 @@
         "illuminate/support": "5.5.* || 5.6.* || 5.7.*",
         "illuminate/console": "5.5.* || 5.6.* || 5.7.*",
         "szwss/documentarian": "^0.2.3",
-        "mpociot/reflection-docblock": "^1.0.1",
+        "szwss/reflection-docblock": "^1.0.2",
         "ramsey/uuid": "^3.8"
     },
     "require-dev": {
