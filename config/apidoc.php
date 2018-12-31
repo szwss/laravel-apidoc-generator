@@ -5,12 +5,30 @@ return [
     /*
      * The output path for the generated documentation.
      */
-    'output' => 'public/docs',
+    'output' => 'public/'.env('API_DOC_PATH','apidocs'),
 
     /*
-     * 指定静态资源文件的url，防止局域网共享时其他访问者无法访问静态资源的问题
+     * 指定静态资源文件的url前缀
+     * 转换为/开头的url，防止局域网共享时其他访问者无法访问静态资源的问题
      */
-    'static_resource_url' => env('APP_URL', 'http://localhost'),
+    'resource_prefix' => '/'.env('API_DOC_PATH','apidocs').'/',
+
+    /*
+     * 默认Accept，当router为Dingo，并且Dingo开启了严格模式，则默认显示
+     * */
+    'default_accept' => 'application/'.env('API_STANDARDS_TREE','x').'.'.env('API_SUBTYPE','laravel').'.'.env('API_VERSION','v1').'+json',
+
+    /*
+     * 默认是否显示content_type，为false不显示，如自定义则直接指定其内容为
+     * application/json
+     * */
+    'default_content_type' => false,
+
+    /*
+     * api文档默认请求域名，为false，则以config('app.url')值为准
+     * 局域网访问请指定其访问域名
+     * */
+    'docs_url' => 'http://192.168.8.111:8888',
 
     /*
      * The router to be used (Laravel or Dingo).

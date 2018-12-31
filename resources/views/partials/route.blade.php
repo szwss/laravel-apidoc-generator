@@ -3,7 +3,7 @@
 @else## {{$route['uri']}}@endif
 @if($route['authenticated'])
 
-<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>@endif
+<br><span style="padding: 5px 9px;white-space: nowrap;color: #ffffff;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;background-color: #7204c5;">Headers 必须附带 Authorization</span>@endif{{--Requires authentication--}}
 @if($route['description'])
 
 {!! $route['description'] !!}
@@ -26,7 +26,7 @@ curl -X {{$route['methods'][0]}} {{$route['methods'][0] == 'GET' ? '-G ' : ''}}"
 ```
 
 ```javascript
-const url = new URL("{{ rtrim(config('app.docs_url') ?: config('app.url'), '/') }}/{{ ltrim($route['uri'], '/') }}");
+const url = new URL("{{ rtrim(config('apidoc.docs_url') !== false ? config('apidoc.docs_url') : config('app.url'), '/') }}/{{ ltrim($route['uri'], '/') }}");
 @if(count($route['queryParameters']))
 
     let params = {
@@ -41,11 +41,18 @@ let headers = {
 @foreach($route['headers'] as $header => $value)
     "{{$header}}": "{{$value}}",
 @endforeach
-@if(!array_key_exists('Accept', $route['headers']))
-    "Accept": "application/json",
+{{--201881231增加router如果是dingo 并且dingo开启了严格模式--}}
+@if(config('apidoc.router' === 'Dingo' && config('api.strict')))
+    {{--默认增加Accept--}}
+    @if(!array_key_exists('Accept', $route['headers']))
+        "Accept": {{ config('apidoc.default_accept','application/json') }},
+    @endif
 @endif
-@if(!array_key_exists('Content-Type', $route['headers']))
-    "Content-Type": "application/json",
+{{--20181231默认增加default_content_type配置项，可默认显示或不显示--}}
+@if(config('apidoc.default_content_type') !== false)
+    @if(!array_key_exists('Content-Type', $route['headers']))
+        "Content-Type": {{ config('apidoc.default_content_type','application/json') }},
+    @endif
 @endif
 }
 @if(count($route['bodyParameters']))
@@ -96,7 +103,7 @@ fetch(url, {
 
 ### HTTP Request
 @foreach($route['methods'] as $method)
-`{{$method}} {{$route['uri']}}`
+`{{$method}} {{ rtrim(config('apidoc.docs_url') !== false ? config('apidoc.docs_url') : config('app.url'), '/') }}/{{ ltrim($route['uri'], '/') }}`
 
 @endforeach
 @if(count($route['bodyParameters']))
