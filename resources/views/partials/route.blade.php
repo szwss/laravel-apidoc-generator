@@ -2,8 +2,8 @@
 @if($route['title'] != '')## {{ $route['title']}}
 @else## {{$route['uri']}}@endif
 @if($route['authenticated'])
-
-<br><span style="padding: 5px 9px;white-space: nowrap;color: #ffffff;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;background-color: #7204c5;">Headers 必须附带 Authorization</span>@endif{{--Requires authentication--}}
+<span style="padding: 5px 9px;white-space: nowrap;color: #ffffff;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;background-color: #7204c5;">Headers 必须附带 Authorization</span>
+@endif{{--Requires authentication--}}
 @if($route['description'])
 
 {!! $route['description'] !!}
@@ -12,7 +12,7 @@
 > Example request:
 
 ```bash
-curl -X {{$route['methods'][0]}} {{$route['methods'][0] == 'GET' ? '-G ' : ''}}"{{ trim(config('app.docs_url') ?: config('app.url'), '/')}}/{{ ltrim($route['uri'], '/') }}" @if(count($route['headers']))\
+curl -X {{$route['methods'][0]}} {{$route['methods'][0] == 'GET' ? '-G ' : ''}}"{{ rtrim(config('apidoc.docs_url') !== false ? config('apidoc.docs_url') : config('app.url'), '/') }}/{{ ltrim($route['uri'], '/') }}" @if(count($route['headers']))\
 @foreach($route['headers'] as $header => $value)
     -H "{{$header}}: {{$value}}"@if(! ($loop->last) || ($loop->last && count($route['bodyParameters']))) \
 @endif
@@ -41,15 +41,12 @@ let headers = {
 @foreach($route['headers'] as $header => $value)
     "{{$header}}": "{{$value}}",
 @endforeach
-{{--201881231增加router如果是dingo 并且dingo开启了严格模式--}}
-@if(config('apidoc.router' === 'Dingo' && config('api.strict')))
-    {{--默认增加Accept--}}
-    @if(!array_key_exists('Accept', $route['headers']))
-        "Accept": {{ config('apidoc.default_accept','application/json') }},
+@if(config('apidoc.router') === 'Dingo' && config('api.strict')){{--201881231增加router如果是dingo 并且dingo开启了严格模式--}}
+    @if(!array_key_exists('Accept', $route['headers'])){{--默认增加Accept--}}
+    "Accept": {{ config('apidoc.default_accept','application/json') }},
     @endif
 @endif
-{{--20181231默认增加default_content_type配置项，可默认显示或不显示--}}
-@if(config('apidoc.default_content_type') !== false)
+@if(config('apidoc.default_content_type') !== false){{--20181231默认增加default_content_type配置项，可默认显示或不显示--}}
     @if(!array_key_exists('Content-Type', $route['headers']))
         "Content-Type": {{ config('apidoc.default_content_type','application/json') }},
     @endif
@@ -103,7 +100,8 @@ fetch(url, {
 
 ### HTTP Request
 @foreach($route['methods'] as $method)
-`{{$method}} {{ rtrim(config('apidoc.docs_url') !== false ? config('apidoc.docs_url') : config('app.url'), '/') }}/{{ ltrim($route['uri'], '/') }}`
+<span style="padding: 1px 5px;white-space: nowrap;color: #ffffff;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;background-color: #7204c5;">{{$method}}</span>
+` {{ rtrim(config('apidoc.docs_url') !== false ? config('apidoc.docs_url') : config('app.url'), '/') }}/{{ ltrim($route['uri'], '/') }}`
 
 @endforeach
 @if(count($route['bodyParameters']))

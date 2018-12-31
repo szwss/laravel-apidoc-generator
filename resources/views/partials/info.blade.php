@@ -1,6 +1,6 @@
-# Info
+#说明
 
-Welcome to the generated API reference.
+欢迎使用API文档！
 @if($showPostmanCollectionButton)
-[Get Postman Collection]({{url($outputPath.'/collection.json')}})
+    [Get Postman Collection]({{ '/'.$outputPath.'/collection.json' }})
 @endif
