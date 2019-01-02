@@ -2,6 +2,8 @@
 @if($route['title'] != '')## {{ $route['title']}}
 @else## {{$route['uri']}}@endif
 @if($route['authenticated'])
+<br/>
+
 <span style="padding: 5px 9px;white-space: nowrap;color: #ffffff;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;background-color: #7204c5;">Headers 必须附带 Authorization</span>
 @endif{{--Requires authentication--}}
 @if($route['description'])

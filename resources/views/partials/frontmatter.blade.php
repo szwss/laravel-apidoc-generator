@@ -9,4 +9,4 @@ includes:
 search: true
 
 toc_footers:
-- <a href='/'>Documentation Powered by szwss</a>
+- <a href='/' target="_blank">Documentation Powered by szwss</a>
